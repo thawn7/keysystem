@@ -14,10 +14,12 @@ import mss
 import os
 import sys
 
-
-if "RUN_FROM_BAT" not in os.environ:
-    print("Error: Please run the 'start.bat'")
+if not os.getenv('778877s'):
+    print("Please run from START.bat.")
     sys.exit(1)
+#if "RUN_FROM_BAT" not in os.environ:
+    #print("Error: Please run the 'run.py'")
+    #sys.exit(1)
 
 dpg.create_context()
 class MouseInput(ctypes.Structure):
@@ -44,8 +46,8 @@ class POINT(ctypes.Structure):
 
 dpg.create_viewport(title='Misa', width=508, height=265, resizable=False)
 dpg.set_viewport_always_top(True)
-width, height, channels, data = dpg.load_image(r'misa.png')
-model = torch.hub.load(r'yolov5', 'custom', path=r'aim.pt', source='local').cuda()
+width, height, channels, data = dpg.load_image(r'settings/misa.png')
+model = torch.hub.load(r'settings/yolov5', 'custom', path=r'settings/s.pt', source='local').cuda()
 model.apm = True
 model.conf = 0.61
 
@@ -75,14 +77,14 @@ def fovv(sender, data):
     fov_size = float(dpg.get_value(fov_slider))
 
 def save_settings(sender, data):
-    with open('settings.csv', mode='w', newline='') as csvfile:
+    with open(r'settings/settings.csv', mode='w', newline='') as csvfile:
         writer = csv.writer(csvfile)
         writer.writerow(['speed_val', 'smooth_val', 'dead_val','fov_size'])
         writer.writerow([speed_val, smooth_val, dead_val, fov_size])
     print(colored('''Settings saved!''', "light_cyan"))
     
 def load_settings(sender, data):
-    with open('settings.csv', mode='r') as csvfile:
+    with open(r'settings/settings.csv', mode='r') as csvfile:
         reader = csv.reader(csvfile)
         next(reader)  # skip header
         row = next(reader)
