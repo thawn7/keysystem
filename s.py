@@ -41,8 +41,8 @@ for i in range(len(subs)):
     expiry = datetime.utcfromtimestamp(int(subs[i]["expiry"])).strftime(
         '%Y-%m-%d %H:%M:%S')  # Expiry date from every Sub
     timeleft = subs[i]["timeleft"]  # Timeleft from every Sub
-
     print(f"[{i + 1} / {len(subs)}] | Subscription: {sub} - Expiry: {expiry} - Timeleft: {timeleft}")
+
 
 colorama.init()
 
@@ -57,26 +57,26 @@ def answer():
         os._exit(1)
 
 answer()
-
 print(f"\n Key Expires at: " + datetime.utcfromtimestamp(int(keyauthapp.user_data.expires)).strftime('%Y-%m-%d %H:%M:%S'))
-time.sleep(4)
+
+time.sleep(2.9)
 print(colored('''                                                                                                                                                                                  
-  o          o   __o__     o__ __o           o         
- <|\        /|>    |      /v     v\         <|>        
- / \\o    o// \   / \    />       <\        / \        
- \o/ v\  /v \o/   \o/   _\o____           o/   \o      
-  |   <\/>   |     |         \_\__o__    <|__ __|>     
- / \        / \   < >              \     /       \     
- \o/        \o/    |     \         /   o/         \o   
-  |          |     o      o       o   /v           v\  
- / \        / \  __|>_    <\__ __/>  />             <\ 
+ _______ _____ _______ _______
+ |  |  |   |   |______ |_____|
+ |  |  | __|__ ______| |     |
+
+          is loading.....
+                              
                                                        
 ''', "light_yellow"))
-time.sleep(1)
+time.sleep(2.8)
+print(colored(''' Enjoy!                              
+''', "light_yellow"))
+time.sleep(1.5)
 console_handle = ctypes.windll.kernel32.GetConsoleWindow()
 
-#if console_handle != 0:
-    #ctypes.windll.user32.ShowWindow(console_handle, 0)
+if console_handle != 0:
+    ctypes.windll.user32.ShowWindow(console_handle, 0)
 os.environ['778877s'] = '1'
 subprocess.call(["python", os.path.join(os.getcwd(), "config.py")])
 
