@@ -48,7 +48,7 @@ colorama.init()
 
 print(colorama.Fore.CYAN + " Connecting...." + colorama.Fore.RESET)
 
-time.sleep(3.5)
+time.sleep(2)
 def answer():
     try:
         key = input('Enter your Key: ')
@@ -72,10 +72,11 @@ print(colored('''
  / \        / \  __|>_    <\__ __/>  />             <\ 
                                                        
 ''', "light_yellow"))
-time.sleep(3)
+time.sleep(1)
 console_handle = ctypes.windll.kernel32.GetConsoleWindow()
 
-if console_handle != 0:
-    ctypes.windll.user32.ShowWindow(console_handle, 0)
+#if console_handle != 0:
+    #ctypes.windll.user32.ShowWindow(console_handle, 0)
+os.environ['778877s'] = '1'
+subprocess.call(["python", os.path.join(os.getcwd(), "config.py")])
 
-subprocess.call(["python", os.path.join(os.getcwd(), "m1.py")])
